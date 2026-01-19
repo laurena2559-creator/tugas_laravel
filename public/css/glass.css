@@ -1,0 +1,111 @@
+/* Light, high-contrast glassmorphism theme */
+:root{
+  --glass-bg: rgba(255,255,255,0.85);
+  --glass-border: rgba(200,200,200,0.5);
+  --glass-strong: rgba(240,240,240,0.9);
+  --glass-shadow: rgba(16,24,40,0.08);
+  --accent: rgba(20,20,25,0.95);
+  --accent-muted: rgba(60,60,70,0.7);
+  --primary-1: #ff6fa8; /* pink */
+  --primary-2: #ff4d7a;
+}
+
+html,body{
+  height:100%;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  color: var(--accent);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* soft backdrop for the whole page wrapper */
+.page-wrapper, .body-wrapper {
+  background: transparent;
+}
+
+/* Make cards look like light glass panels */
+.card, .card-body, .table, .modal-content {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: 0 6px 20px var(--glass-shadow) !important;
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
+  color: var(--accent) !important;
+}
+
+/* Slightly darker card titles for contrast */
+.card-title {
+  color: var(--accent) !important;
+}
+
+/* Inputs and selects clean light */
+.form-control, .form-select {
+  background: #ffffff !important;
+  border: 1px solid rgba(200,200,200,0.6) !important;
+  color: var(--accent) !important;
+}
+
+/* Buttons: clear, bright primary */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-1), var(--primary-2)) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 6px 18px rgba(255,77,122,0.12);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn-warning, .btn-secondary, .btn-danger {
+  color: var(--accent) !important;
+}
+
+/* Tables: crisp headings */
+thead tr th {
+  background: transparent;
+  color: var(--accent) !important;
+}
+
+.table tbody tr td {
+  border-top: 1px solid rgba(230,230,230,0.6);
+}
+
+/* Sidebar tweaks to match light theme */
+.left-sidebar, .sidebar { 
+  background: #ffffff !important;
+  border-right: 1px solid rgba(230,230,230,0.7) !important;
+}
+
+/* Breadcrumbs and small text */
+.text-muted { color: var(--accent-muted) !important; }
+.small { color: var(--accent-muted) !important; }
+
+/* Badge styles */
+.badge {
+  background: rgba(250,250,250,0.8) !important;
+  color: var(--accent) !important;
+  border: 1px solid rgba(220,220,220,0.6) !important;
+}
+
+/* Modal overlay dim color */
+.modal-backdrop.show {
+  background-color: rgba(0,0,0,0.15) !important;
+}
+
+/* Make cards slightly rounded on desktop for airy feel */
+@media(min-width: 992px){
+  .card { border-radius: 10px; }
+}
+
+/* Improve contrast for small text inside cards */
+.card small, .card .small { color: var(--accent-muted) !important; }
+
+/* Utility: focus styles */
+.form-control:focus, .form-select:focus {
+  outline: none !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
